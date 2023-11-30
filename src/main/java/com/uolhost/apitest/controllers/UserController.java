@@ -35,7 +35,7 @@ public class UserController {
     ResponseEntity<UserViewDto> create(@RequestBody @Valid UserFormDto formDto) {
         UserViewDto userDto = service.create(formDto);
         URI uri = ServletUriComponentsBuilder
-                .fromCurrentRequestUri().path("{id}").buildAndExpand(userDto.id()).toUri();
+                .fromCurrentRequestUri().path("/{id}").buildAndExpand(userDto.id()).toUri();
 
         return created(uri).body(userDto);
     }
