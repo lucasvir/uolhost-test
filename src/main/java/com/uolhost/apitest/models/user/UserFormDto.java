@@ -12,7 +12,6 @@ public record UserFormDto(
         @NotNull
         String email,
 
-        @NotNull
 //        @Pattern(regexp = "(\\([0-9]{2}\\))([0-9]{4,5})([0-9]{4})")
         String telephone,
 

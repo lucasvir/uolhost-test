@@ -2,6 +2,7 @@ package com.uolhost.apitest.models.user;
 
 public record UserViewDto(
         Long id,
+
         String name,
         String email,
         String telephone,

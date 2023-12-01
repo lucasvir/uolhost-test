@@ -39,22 +39,21 @@ public class CodenameBuild {
                 "https://raw.githubusercontent.com/uolhost/test-backEnd-Java/master/referencias/vingadores.json"
                 : "https://raw.githubusercontent.com/uolhost/test-backEnd-Java/master/referencias/liga_da_justica.xml";
 
-        var client = HttpClient.newHttpClient();
-
-        try {
             HttpRequest request = HttpRequest.newBuilder(
                             URI.create(url))
                     .header("accept", "application/json")
                     .header("accept", "application/xml")
                     .build();
 
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return response.body();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        HttpClient client = HttpClient.newHttpClient();
+        HttpResponse<String> response = null;
+        try {
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e.getMessage());
         }
 
-        return null;
+        return response.body();
     }
 
     private List<String> getJsonCodenameList(String requestCodenames) {
@@ -93,19 +92,21 @@ public class CodenameBuild {
     }
 
     public String getCodename() {
-        //making a list with users codename already registered
+        //making a list with users codename persisted
         List<User> users = repository.findAll();
         List<String> usersCodenames = new ArrayList<>();
         users.forEach(user -> usersCodenames.add(user.getCodename()));
 
-        // getting codename from a request from outside url
+        // getting codenames list from a request to external url
         String requestCodenames = requestCodenames();
 
+        // directing specific deserializator (JSON/XML)
         boolean codenameGroupIsVingadores = codenameGroup.equalsIgnoreCase("vingadores");
         List<String> requestCodenameList = codenameGroupIsVingadores
                 ? getJsonCodenameList(requestCodenames)
                 : getXmlCodenameList(requestCodenames);
 
+        // filtering free codenames of request list
         List<String> usableCodenameList = requestCodenameList.stream()
                 .filter(codename -> !usersCodenames.contains(codename))
                 .toList();
@@ -114,6 +115,7 @@ public class CodenameBuild {
             throw new ResourceEmptyException("Não há mais codinomes disponíveis.");
         }
 
+        // choosing random codename
         int n = usableCodenameList.size();
         int random = (int) (Math.random() * n);
 
