@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import static org.springframework.http.ResponseEntity.badRequest;
+import static org.springframework.http.ResponseEntity.notFound;
 
 @RestControllerAdvice
 public class ExceptionsHandler {
@@ -16,6 +17,6 @@ public class ExceptionsHandler {
 
     @ExceptionHandler(ResourceEmptyException.class)
     ResponseEntity<String> handle404ResourceEmpty(ResourceEmptyException e) {
-        return badRequest().body(e.getMessage());
+        return notFound().build();
     }
 }
