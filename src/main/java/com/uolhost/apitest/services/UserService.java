@@ -28,7 +28,7 @@ public class UserService {
     public UserViewDto create(UserFormDto formDto) {
         boolean existsByEmail = repository.existsByEmail(formDto.email());
         if (existsByEmail) {
-            throw new UserAlreadyRegisteredException("Usuário já cadastrado.");
+            throw new UserAlreadyRegisteredException("{ \"message\": \"Usuário já cadastrado.\" }");
         }
 
         CodenameBuild codenameBuild = new CodenameBuild(repository, formDto.codenameGroup());
@@ -43,7 +43,7 @@ public class UserService {
     public List<UserViewDto> index() {
         List<User> users = repository.findAll();
         if (users.isEmpty()) {
-            throw new ResourceEmptyException("Não há registros");
+            throw new ResourceEmptyException("{ \"message\": \"Não há registros\" }");
         }
 
         List<UserViewDto> usersDto = new ArrayList<>();

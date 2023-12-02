@@ -1,5 +1,6 @@
 package com.uolhost.apitest.exceptions;
 
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -18,5 +19,10 @@ public class ExceptionsHandler {
     @ExceptionHandler(ResourceEmptyException.class)
     ResponseEntity<String> handle404ResourceEmpty(ResourceEmptyException e) {
         return notFound().build();
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    ResponseEntity<String> handle404ResourceEmpty(ConstraintViolationException e) {
+        return badRequest().body("{\"error\": \"E-mail must be well-formed address\" }");
     }
 }

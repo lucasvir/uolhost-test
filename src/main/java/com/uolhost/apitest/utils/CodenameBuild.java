@@ -85,7 +85,7 @@ public class CodenameBuild {
 
 
         } catch (JDOMException | IOException e) {
-            throw new RuntimeException("Error parsing xml response. " + "error: " + e.getMessage());
+            throw new RuntimeException("{ \"message\": \"Error parsing xml response.\" }");
         }
 
         return codenamesList;
@@ -112,7 +112,7 @@ public class CodenameBuild {
                 .toList();
 
         if (usableCodenameList.isEmpty()) {
-            throw new ResourceEmptyException("Não há mais codinomes disponíveis.");
+            throw new ResourceEmptyException("{ \"error\": \"Não há mais codinomes disponíveis.\" }");
         }
 
         // choosing random codename

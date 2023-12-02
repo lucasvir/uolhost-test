@@ -23,6 +23,7 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     ResponseEntity<List<UserViewDto>> index() {
         List<UserViewDto> user = service.index();
@@ -30,6 +31,7 @@ public class UserController {
         return ok(user);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/form")
     @Transactional
     ResponseEntity<UserViewDto> create(@RequestBody @Valid UserFormDto formDto) {
