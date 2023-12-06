@@ -6,6 +6,7 @@ import com.google.gson.JsonParser;
 
 import com.uolhost.apitest.exceptions.ResourceEmptyException;
 import com.uolhost.apitest.exceptions.UserAlreadyRegisteredException;
+import com.uolhost.apitest.exceptions.UserDontExistsException;
 import com.uolhost.apitest.models.user.User;
 import com.uolhost.apitest.models.user.UserFormDto;
 import com.uolhost.apitest.models.user.UserViewDto;
@@ -33,7 +34,6 @@ public class UserService {
 
         CodenameBuild codenameBuild = new CodenameBuild(repository, formDto.codenameGroup());
         String codename = codenameBuild.getCodename();
-
         User user = repository.save(new User(formDto, codename));
 
         return new UserViewDto(user);
@@ -50,5 +50,12 @@ public class UserService {
         users.forEach(u -> usersDto.add(new UserViewDto(u)));
 
         return usersDto;
+    }
+
+    public void delete(String id) {
+        User user = repository.findById(Long.parseLong(id))
+                .orElseThrow(() -> new UserDontExistsException("Usuário não encontrado"));
+
+        repository.delete(user);
     }
 }
