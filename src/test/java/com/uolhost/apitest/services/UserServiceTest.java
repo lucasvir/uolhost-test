@@ -26,7 +26,7 @@ class UserServiceTest {
     void shouldReturnListAllUsers() {
         List<UserViewDto> users = userService.index();
 
-        assertEquals(users.size(), 3);
+        assertEquals(users.size(), 4);
         assertEquals(users.get(0).name(), "teste");
     }
 
@@ -41,21 +41,21 @@ class UserServiceTest {
                 )
         );
 
-        assertEquals(user.id(), 4);
-        assertEquals(user.name(), "teste4");
+        assertEquals(9, user.id());
+        assertEquals("teste4", user.name());
     }
 
     @Test
     void shouldCreateUserWithValidInputAndVingadoresCodeName() {
         UserViewDto user = userService.create(
                 new UserFormDto(
-                        "teste4",
-                        "teste4@email.com",
+                        "teste5",
+                        "teste5@email.com",
                         "11908765454",
                         "vingadores")
         );
 
-        assertEquals(user.id(), 4);
-        assertEquals(user.name(), "teste4");
+        assertEquals(10, user.id());
+        assertEquals("teste5", user.name());
     }
 }

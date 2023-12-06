@@ -1,3 +1,5 @@
+DELETE FROM users;
+
 INSERT INTO users (name, email, telephone, codename, codename_group)
 VALUES ('teste', 'teste@email.com', '11998876545', 'Hulk', 'VINGADORES');
 

@@ -3,7 +3,7 @@ package com.uolhost.apitest.utils;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.uolhost.apitest.exceptions.ResourceEmptyException;
+import com.uolhost.apitest.exceptions.GroupListNotAvailableException;
 import com.uolhost.apitest.models.user.User;
 import com.uolhost.apitest.repositories.UserRepository;
 import lombok.NoArgsConstructor;
@@ -111,8 +111,10 @@ public class CodenameBuild {
                 .filter(codename -> !usersCodenames.contains(codename))
                 .toList();
 
+        var classs = usableCodenameList.getClass();
+
         if (usableCodenameList.isEmpty()) {
-            throw new ResourceEmptyException("{ \"error\": \"Não há mais codinomes disponíveis.\" }");
+            throw new GroupListNotAvailableException("{ \"message\": \"Não há mais codinomes disponíveis nesta lista.\" }");
         }
 
         // choosing random codename

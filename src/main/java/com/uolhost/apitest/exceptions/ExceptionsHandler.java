@@ -25,4 +25,9 @@ public class ExceptionsHandler {
     ResponseEntity<String> handle404ResourceEmpty(ConstraintViolationException e) {
         return badRequest().body("{\"error\": \"E-mail must be well-formed address\" }");
     }
+
+    @ExceptionHandler(GroupListNotAvailableException.class)
+    ResponseEntity<String> handle400GroupListNotAvailable(GroupListNotAvailableException e) {
+        return badRequest().body(e.getMessage());
+    }
 }
