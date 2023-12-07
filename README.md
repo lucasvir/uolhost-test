@@ -31,37 +31,40 @@ Aplicação [Front-end](https://uolhost-spa-lucasvir.vercel.app).
     
 ## :construction: EXEC
 
-> Pré-rquisitos:
+> Pré-requisitos:
 > - instalar o Java ([Oracle](https://www.oracle.com/java/technologies/downloads/)).
 > - instalar banco de dados H2 ([H2 Database](http://www.h2database.com/html/download.html)).
+> - instalar o Maven (build) ([Maven](https://maven.apache.org/install.html)).
 
+<br />
 
+Clonar repositório
 ```bash
-
- # clonando repositório
 git clone https://github.com/lucasvir/uolhost-test.git
-
 ```
 
+Acessar diretório
 ```bash
-#acessar diretório
 cd uolhost-test
 ```
 
+fazer o build
 ```bash
-#inicializar aplicação setando as variáveis de ambiente
-#DB_URL: endereço do banco de dados
-#DB_USERNAME: nome do usuário do banco de dados (padrão no H2: sa)
-#DB_PASSWORD: senha de acesso ao banco de dados (padrão no H2: password)
+mvn verify
+```
+Inicializar aplicação setando as variáveis de ambiente
+> DB_URL: endereço do banco de dados <br />
+> DB_USERNAME: nome do usuário do banco de dados (padrão no H2: sa) <br />
+> DB_PASSWORD: senha de acesso ao banco de dados (padrão no H2: password) <br />
 
-#exemplo:
+*exemplo:*
+```bash
 java -DDB_URL=jdbc:h2:mem:uolhost -DDB_USERNAME=sa -DDB_PASSWORD=password -jar target/apitest-0.0.1-SNAPSHOT.jar
 ```
 
-```bash
-#acessar banco de dados
-No browser acesse: http://localhost:8080/h2-console
-```
+Acessar banco de dados
+> No browser acesse: http://localhost:8080/h2-console
+
 
 *obs: a porta exposta da api deve ser '8080' para o funcionamento correto com o front-end já [hospedado](https://uolhost-spa-lucasvir.vercel.app).*
 
