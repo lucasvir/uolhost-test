@@ -27,12 +27,12 @@ Projeto inclui:
 ### POST - /users/form
 Criando usuário
 
-![Create User](github/imgs/uoltest-post.png)
+![Create User](github/imgs/uoltest_post.png)
 
 ### GET - /users
 Listando todos usuários
 
-![Index Users](github/imgs/uoltest-get.png)
+![Index Users](github/imgs/uolhots_get.png)
 
 ### DB - SELECT * users
 DB com os dados persistidos
