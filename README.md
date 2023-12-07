@@ -24,6 +24,7 @@ Aplicação [Front-end](https://uolhost-spa-lucasvir.vercel.app).
   - Spring Framework
   - JPA/Hibernate
   - JUnit
+  - Flyway
   - H2 Database
   - Maven
 
@@ -48,7 +49,7 @@ Acessar diretório
 cd uolhost-test
 ```
 
-fazer o build
+Fazer o build
 ```bash
 mvn verify
 ```
