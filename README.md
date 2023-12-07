@@ -9,7 +9,7 @@ Desenvolvido para meus estudos em Java e Spring Framework
 Projeto inclui:
 - Leitura e processamento de dados que estão em arquivos JSON e XML via URL externa.
 - Persistencia em banco de dados em memória (H2). 
-- Listar todos os usuário incluindo os codinomes escolhidos dos arquivos, bem como de que lista o codinome pertence.
+- Listar todos os usuário incluindo os codinomes escolhidos randomicamente dos arquivos, bem como de que lista o codinome pertence.
 
   Mais detalhes da [proposta](https://github.com/uolhost/test-backEnd-Java).
 
