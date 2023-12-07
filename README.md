@@ -67,7 +67,7 @@ Acessar banco de dados
 > No browser acesse: http://localhost:8080/h2-console
 
 
-*obs: a porta exposta da api deve ser '8080' para o funcionamento correto com o front-end já [hospedado](https://uolhost-spa-lucasvir.vercel.app).*
+*obs: a porta da api deve ser '8080' para o funcionamento correto com o front-end já [hospedado](https://uolhost-spa-lucasvir.vercel.app).*
 
 ## 
 
