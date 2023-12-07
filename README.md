@@ -4,7 +4,8 @@ Desenvolvido para meus estudos em Java e Spring Framework
 
 > "O teste consiste em montar uma aplicação Java capaz de recuperar informações de um arquivo XML e de um arquivo JSON, persistir um cadastro em um banco de dados em memória ou em arquivo e listar os cadastros em uma interface simples." <br />
 
-[Repositorio do teste](https://github.com/uolhost/test-backEnd-Java)
+[Repositorio do teste](https://github.com/uolhost/test-backEnd-Java) <br />
+Repositório do [front](https://github.com/lucasvir/uolhost-spa)
 
 Projeto inclui:
 - Leitura e processamento de dados que estão em arquivos JSON e XML via URL externa.
