@@ -55,7 +55,7 @@ cd uolhost-test
 #DB_PASSWORD: senha de acesso ao banco de dados (padrão no H2: password)
 
 #exemplo:
-java -DDB_URL=jdbc:h2:mem:uolhost -DDB_USERNAME=<nomedousuario> -DDATASOURCE_PASSWORD=<senhadousuario> -jar target/api-0.0.1-SNAPSHOT.jar
+java -DDB_URL=jdbc:h2:mem:uolhost -DDB_USERNAME=sa -DDB_PASSWORD=password -jar target/apitest-0.0.1-SNAPSHOT.jar
 ```
 
 ```bash
