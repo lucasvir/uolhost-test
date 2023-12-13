@@ -41,7 +41,7 @@ class UserServiceTest {
                 )
         );
 
-        assertEquals(9, user.id());
+        assertEquals(4, user.id());
         assertEquals("teste4", user.name());
     }
 
@@ -55,7 +55,7 @@ class UserServiceTest {
                         "vingadores")
         );
 
-        assertEquals(10, user.id());
+        assertEquals(5, user.id());
         assertEquals("teste5", user.name());
     }
 }

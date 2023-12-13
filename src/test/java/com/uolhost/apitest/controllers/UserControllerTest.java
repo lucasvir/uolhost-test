@@ -58,7 +58,7 @@ class UserControllerTest {
                 )
                 .andReturn().getResponse();
 
-        String expectedHeaderLocation = "http://localhost/users/form/7";
+        String expectedHeaderLocation = "http://localhost/users/form/9";
 
         assertEquals(201, response.getStatus());
         assertEquals(expectedHeaderLocation, response.getHeader("Location"));
@@ -83,7 +83,7 @@ class UserControllerTest {
                 )
                 .andReturn().getResponse();
 
-        String expectedHeaderLocation = "http://localhost/users/form/8";
+        String expectedHeaderLocation = "http://localhost/users/form/10";
 
         assertEquals(201, response.getStatus());
         assertEquals(expectedHeaderLocation, response.getHeader("Location"));
